@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Anthony Vega — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0b1f3a;
+    --navy-mid: #163054;
+    --navy-light: #1e4070;
+    --accent: #c8a96e;
+    --accent-light: #e8d5a3;
+    --white: #ffffff;
+    --off-white: #f7f8fa;
+    --text-muted: #6b7c93;
+    --border: rgba(11,31,58,0.12);
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--white);
+    color: var(--navy);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-name {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--navy); }
+
+  .nav-cta {
+    color: var(--white) !important;
+    background: var(--navy);
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--navy-light) !important; }
+
+  .hero {
+    padding: 10rem 3rem 6rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+  }
+
+  .hero-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--navy);
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 em { font-style: italic; color: var(--navy-light); }
+
+  .hero-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2rem;
+    border-top: 0.5px solid var(--border);
+    padding-top: 2rem;
+  }
+
+  .meta-item label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .meta-item span { font-size: 0.9rem; color: var(--navy); }
+
+  .hero-right { display: flex; flex-direction: column; justify-content: flex-end; gap: 2rem; }
+
+  .hero-tagline {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--navy-mid);
+    font-style: italic;
+  }
+
+  .hero-badges { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+  .badge {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--navy-mid);
+    border: 0.5px solid var(--border);
+    padding: 0.4rem 0.9rem;
+    border-radius: 2px;
+  }
+
+  .section-divider {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 3rem 0 2.5rem;
+  }
+
+  .section-num {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .section-title em { font-style: italic; color: var(--navy-light); }
+
+  .about-section { max-width: 1200px; margin: 0 auto; padding: 0 3rem 5rem; }
+
+  .about-body { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+
+  .about-body p { font-size: 1rem; color: var(--navy-mid); line-height: 1.8; margin-bottom: 1.25rem; }
+
+  .about-body p strong { color: var(--navy); font-weight: 500; }
+
+  .about-highlights { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .highlight-card {
+    border: 0.5px solid var(--border);
+    padding: 1.25rem 1.5rem;
+    border-radius: 2px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .highlight-card h4 {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .highlight-card p { font-size: 0.9rem; color: var(--navy-mid); line-height: 1.6; margin: 0; }
+
+  .experience-section { background: var(--navy); padding: 5rem 0; }
+
+  .experience-inner { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+
+  .experience-inner .section-num { color: var(--accent); }
+  .experience-inner .section-title { color: var(--white); }
+  .experience-inner .section-title em { color: var(--accent-light); }
+
+  .exp-list { display: flex; flex-direction: column; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 3rem;
+    padding: 2.5rem 0;
+    border-bottom: 0.5px solid rgba(255,255,255,0.1);
+  }
+
+  .exp-item:last-child { border-bottom: none; }
+
+  .exp-date {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+    padding-top: 0.25rem;
+  }
+
+  .exp-content h3 {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+
+  .exp-company {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .exp-content p { font-size: 0.92rem; color: rgba(255,255,255,0.6); line-height: 1.75; }
+
+  .work-section { max-width: 1200px; margin: 0 auto; padding: 0 3rem 5rem; }
+
+  .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+  .work-card {
+    border: 0.5px solid var(--border);
+    padding: 2rem;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .work-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.25s ease;
+  }
+
+  .work-card:hover::before { transform: scaleY(1); }
+  .work-card:hover { border-color: rgba(11,31,58,0.25); }
+
+  .work-card-tag {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .work-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .work-card h3 em { font-style: italic; color: var(--navy-light); }
+
+  .work-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem; }
+
+  .work-stats { display: flex; gap: 2rem; }
+
+  .work-stat-num {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--navy);
+    display: block;
+    line-height: 1;
+  }
+
+  .work-stat-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  .skills-section { background: var(--off-white); padding: 5rem 0; }
+  .skills-inner { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+
+  .skills-col h4 {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .skill-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .skill-row:last-child { border-bottom: none; }
+  .skill-name { font-size: 0.9rem; color: var(--navy); }
+
+  .skill-level {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: rgba(11,31,58,0.06);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+  }
+
+  .leadership-section { max-width: 1200px; margin: 0 auto; padding: 0 3rem 5rem; }
+  .leadership-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+  .leadership-card { border: 0.5px solid var(--border); padding: 2rem; border-radius: 2px; }
+
+  .leadership-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+  }
+
+  .leadership-card h3 { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; color: var(--navy); }
+
+  .leadership-card-dates {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    margin-left: 1rem;
+  }
+
+  .leadership-role {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .leadership-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+
+  .contact-section { background: var(--navy); padding: 6rem 3rem; text-align: center; }
+
+  .contact-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    max-width: 700px;
+    margin: 0 auto 1.25rem;
+  }
+
+  .contact-headline em { font-style: italic; color: var(--accent-light); }
+
+  .contact-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    max-width: 480px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+  }
+
+  .contact-links { display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; }
+
+  .contact-link {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-link:hover { color: var(--accent-light); }
+
+  .contact-link-primary {
+    background: var(--accent);
+    color: var(--navy) !important;
+    padding: 0.75rem 2rem;
+    border-radius: 2px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: background 0.2s;
+  }
+
+  .contact-link-primary:hover { background: var(--accent-light) !important; }
+
+  .footer-meta {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 0.5px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+    font-family: var(--font-mono);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1      { animation: fadeUp 0.8s ease both; }
+  .hero-tagline { animation: fadeUp 0.8s 0.15s ease both; }
+  .hero-meta    { animation: fadeUp 0.8s 0.25s ease both; }
+  .hero-right   { animation: fadeUp 0.8s 0.2s ease both; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; gap: 2.5rem; }
+    .about-body, .work-grid, .skills-grid, .leadership-grid { grid-template-columns: 1fr; }
+    .about-section, .work-section, .leadership-section { padding: 0 1.5rem 4rem; }
+    .experience-inner, .skills-inner { padding: 0 1.5rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .section-divider { padding: 0 1.5rem; }
+    .contact-section { padding: 5rem 1.5rem; }
+    .footer-meta { flex-direction: column; gap: 0.5rem; text-align: center; margin-top: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="#">Anthony Vega.</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#work">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<section>
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-label">Portfolio — Vol. I — 2025</p>
+      <h1>Anthony<br /><em>Vega.</em></h1>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <label>Location</label>
+          <span>Hollywood, Florida</span>
+        </div>
+        <div class="meta-item">
+          <label>Focus</label>
+          <span>Life Coaching · Content</span>
+        </div>
+        <div class="meta-item">
+          <label>Status</label>
+          <span>Open to Opportunities</span>
+        </div>
+        <div class="meta-item">
+          <label>Channel</label>
+          <span>YouTube · Coming Soon</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <p class="hero-tagline">"Helping young men show up with presence, intention, and emotional intelligence — in life and in love."</p>
+      <div class="hero-badges">
+        <span class="badge">Men's Life Coach</span>
+        <span class="badge">Content Creator</span>
+        <span class="badge">Relationship Strategy</span>
+        <span class="badge">Personal Growth</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" id="about">
+  <div class="section-header">
+    <span class="section-num">01 / ABOUT</span>
+    <h2 class="section-title">A dual discipline. <em>One lens.</em></h2>
+  </div>
+</div>
+
+<div class="about-section">
+  <div class="about-body">
+    <div>
+      <p>I'm interested in the way <strong>presence, consistency, and self-awareness</strong> shape how a man shows up — in relationships, in rooms, and in his own mind. I study the intersection of emotional intelligence and masculine grounding, and I translate that into content and coaching young men can actually apply.</p>
+      <p>My work is grounded in a philosophy I call <strong>the slow way of living</strong> — intentional effort, small consistent gestures, and building the kind of character that attracts rather than chases. I draw from my own experience navigating long-distance relationships, personal growth, and the real pressures facing men aged 18–25 today.</p>
+      <p>I'm a strong listener who can break down complex inner dynamics into clear, actionable steps — without shaming vulnerability or glorifying ego.</p>
+    </div>
+    <div class="about-highlights">
+      <div class="highlight-card">
+        <h4>Coaching Philosophy</h4>
+        <p>Masculine presence built on emotional intelligence — not performance. Vulnerability is a strength, not a weakness.</p>
+      </div>
+      <div class="highlight-card">
+        <h4>Content Focus</h4>
+        <p>28-video channel plan across mindset & growth, relationships & social skills, and health & fitness.</p>
+      </div>
+      <div class="highlight-card">
+        <h4>Personal Experience</h4>
+        <p>Navigated long-distance relationships firsthand — grounded, relatable storytelling is at the core of everything I teach.</p>
+      </div>
+      <div class="highlight-card">
+        <h4>Influences</h4>
+        <p>Scott Ste Marie · <em>The Way of the Superior Man</em> · Stoic philosophy · Modern attachment theory</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="experience-section" id="experience">
+  <div class="experience-inner">
+    <div class="section-header" style="border-top: 0.5px solid rgba(255,255,255,0.1);">
+      <span class="section-num">02 / EXPERIENCE</span>
+      <h2 class="section-title">Where the <em>work</em> has been done.</h2>
+    </div>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-date">2024 — Present</div>
+        <div class="exp-content">
+          <h3>Men's Life Coach & Content Creator</h3>
+          <p class="exp-company">Self-Founded · Personal Brand</p>
+          <p>Building a YouTube channel and coaching brand focused on helping men aged 18–25 develop confidence, self-awareness, and healthier romantic relationships. Developed a structured 28-video content roadmap, built an AI chatbot companion tool, and created a coaching framework grounded in masculine presence and emotional intelligence.</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">2023 — 2024</div>
+        <div class="exp-content">
+          <h3>Relationship & Mindset Mentor</h3>
+          <p class="exp-company">Community-Based · Peer Coaching</p>
+          <p>Provided one-on-one guidance to peers navigating long-distance relationships, confidence challenges, and emotional regulation. Known for empathetic listening and clear, step-by-step frameworks men could immediately apply.</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">2022 — 2023</div>
+        <div class="exp-content">
+          <h3>Content Strategist & Creator</h3>
+          <p class="exp-company">Personal Projects</p>
+          <p>Researched top YouTube coaching creators for delivery, presence, and content authenticity. Built a deep understanding of what makes long-form coaching content resonate with young male audiences, informing scripting and on-camera strategy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" id="work">
+  <div class="section-header">
+    <span class="section-num">03 / SELECTED WORK</span>
+    <h2 class="section-title">Projects, trackers, and <em>decisions.</em></h2>
+  </div>
+</div>
+
+<div class="work-section">
+  <div class="work-grid">
+    <div class="work-card">
+      <p class="work-card-tag">Coaching · Content</p>
+      <h3>28-Video <em>Content Roadmap</em></h3>
+      <p>A fully structured YouTube content plan across three pillars: mindset & personal growth, relationships & social skills, and health & fitness. Each video mapped to a hook, problem, mindset shift, how-to, payoff, and action step.</p>
+      <div class="work-stats">
+        <div><span class="work-stat-num">28</span><span class="work-stat-label">Videos Planned</span></div>
+        <div><span class="work-stat-num">3</span><span class="work-stat-label">Content Pillars</span></div>
+      </div>
+    </div>
+    <div class="work-card">
+      <p class="work-card-tag">AI · Product</p>
+      <h3>Channel <em>AI Companion Tool</em></h3>
+      <p>Built a detailed AI chatbot system prompt modeled on Scott Ste Marie's tone — calm, direct, emotionally intelligent. Explicitly excludes manipulative advice frameworks. Designed to extend the coaching experience beyond video.</p>
+      <div class="work-stats">
+        <div><span class="work-stat-num">1</span><span class="work-stat-label">Companion System</span></div>
+        <div><span class="work-stat-num">0</span><span class="work-stat-label">Manipulation Tactics</span></div>
+      </div>
+    </div>
+    <div class="work-card">
+      <p class="work-card-tag">Framework · Methodology</p>
+      <h3>The <em>Slow Way</em> Framework</h3>
+      <p>A foundational life philosophy translated into coaching content — intentional effort, small consistent gestures, and emotional leadership in relationships. Covers presence, communication, and leading in a modern partnership.</p>
+      <div class="work-stats">
+        <div><span class="work-stat-num">5</span><span class="work-stat-label">Core Principles</span></div>
+        <div><span class="work-stat-num">18–25</span><span class="work-stat-label">Target Age Range</span></div>
+      </div>
+    </div>
+    <div class="work-card">
+      <p class="work-card-tag">Research · Strategy</p>
+      <h3>Creator <em>Study & Analysis</em></h3>
+      <p>Systematic research into top coaching YouTube creators — studying delivery, on-camera presence, scripting, and authenticity. Identified what resonates with young male audiences and built a distinct personal delivery style.</p>
+      <div class="work-stats">
+        <div><span class="work-stat-num">10+</span><span class="work-stat-label">Creators Analyzed</span></div>
+        <div><span class="work-stat-num">1</span><span class="work-stat-label">Distinct Voice Built</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="skills-section" id="skills">
+  <div class="skills-inner">
+    <div class="section-header" style="border-top: 0.5px solid var(--border);">
+      <span class="section-num">04 / SKILLS</span>
+      <h2 class="section-title">Technical &amp; <em>professional.</em></h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skills-col">
+        <h4>Coaching &amp; Communication</h4>
+        <div class="skill-row"><span class="skill-name">Active Listening</span><span class="skill-level">Advanced</span></div>
+        <div class="skill-row"><span class="skill-name">Emotional Intelligence</span><span class="skill-level">Advanced</span></div>
+        <div class="skill-row"><span class="skill-name">Relationship Coaching</span><span class="skill-level">Advanced</span></div>
+        <div class="skill-row"><span class="skill-name">Framework Development</span><span class="skill-level">Proficient</span></div>
+        <div class="skill-row"><span class="skill-name">On-Camera Presence</span><span class="skill-level">Developing</span></div>
+        <div class="skill-row"><span class="skill-name">Vulnerability Coaching</span><span class="skill-level">Proficient</span></div>
+      </div>
+      <div class="skills-col">
+        <h4>Content &amp; Strategy</h4>
+        <div class="skill-row"><span class="skill-name">YouTube Content Strategy</span><span class="skill-level">Proficient</span></div>
+        <div class="skill-row"><span class="skill-name">Script Writing</span><span class="skill-level">Proficient</span></div>
+        <div class="skill-row"><span class="skill-name">AI Prompt Engineering</span><span class="skill-level">Proficient</span></div>
+        <div class="skill-row"><span class="skill-name">Brand Development</span><span class="skill-level">Developing</span></div>
+        <div class="skill-row"><span class="skill-name">Audience Research</span><span class="skill-level">Proficient</span></div>
+        <div class="skill-row"><span class="skill-name">Long-Form Content Planning</span><span class="skill-level">Advanced</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" id="leadership">
+  <div class="section-header">
+    <span class="section-num">05 / LEADERSHIP</span>
+    <h2 class="section-title">Building structure <em>from the ground up.</em></h2>
+  </div>
+</div>
+
+<div class="leadership-section">
+  <div class="leadership-grid">
+    <div class="leadership-card">
+      <div class="leadership-card-header">
+        <h3>Men's Coaching Community</h3>
+        <span class="leadership-card-dates">2024 — Present</span>
+      </div>
+      <p class="leadership-role">Founder &amp; Lead Coach</p>
+      <p>Founded a peer community for young men focused on self-development, relationship health, and accountability. Designed onboarding frameworks and built a culture of honest, non-judgmental growth.</p>
+    </div>
+    <div class="leadership-card">
+      <div class="leadership-card-header">
+        <h3>YouTube Channel Initiative</h3>
+        <span class="leadership-card-dates">2024 — Present</span>
+      </div>
+      <p class="leadership-role">Creator &amp; Strategist</p>
+      <p>Single-handedly built the research, content strategy, scripting framework, and AI companion tool for a men's life coaching channel — from ideation through launch-ready infrastructure.</p>
+    </div>
+    <div class="leadership-card">
+      <div class="leadership-card-header">
+        <h3>Peer Mentorship Program</h3>
+        <span class="leadership-card-dates">2022 — 2024</span>
+      </div>
+      <p class="leadership-role">Mentor</p>
+      <p>Provided consistent one-on-one guidance to peers navigating personal challenges, long-distance relationships, and emotional growth. Built a reputation as a trusted, grounded, and articulate advisor.</p>
+    </div>
+    <div class="leadership-card">
+      <div class="leadership-card-header">
+        <h3>Philosophy &amp; Content Research</h3>
+        <span class="leadership-card-dates">2022 — 2023</span>
+      </div>
+      <p class="leadership-role">Independent Researcher</p>
+      <p>Deep study of masculine philosophy, modern relationship dynamics, and coaching methodologies — informing a nuanced, non-dogmatic coaching approach grounded in real experience.</p>
+    </div>
+  </div>
+</div>
+
+<section class="contact-section" id="contact">
+  <p class="contact-label">06 / Contact</p>
+  <h2 class="contact-headline">Open to conversations about <em>coaching, content,</em> and collaboration.</h2>
+  <p class="contact-sub">Whether you're a young man looking for guidance, a brand interested in partnership, or someone who resonates with this work — reach out.</p>
+  <div class="contact-links">
+    <a href="mailto:your@email.com" class="contact-link contact-link-primary">Get in Touch</a>
+    <a href="https://youtube.com/@yourchannel" class="contact-link">YouTube</a>
+    <a href="https://instagram.com/yourhandle" class="contact-link">Instagram</a>
+    <a href="https://linkedin.com/in/anthonyvega" class="contact-link">LinkedIn</a>
+  </div>
+  <div class="footer-meta">
+    <span>Anthony Vega — Hollywood, FL</span>
+    <span>your@email.com</span>
+    <span>anthonyvega-dev.github.io</span>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.exp-item, .work-card, .leadership-card, .highlight-card, .skill-row').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
