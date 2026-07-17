@@ -413,16 +413,8 @@
   .contact-layout {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 0;
-    align-items: stretch;
-  }
-
-  .contact-left {
-    padding: 3rem 3rem 3rem 2rem;
-  }
-
-  .contact-right {
-    padding: 3rem 2rem 3rem 3rem;
+    gap: 3rem;
+    align-items: start;
   }
 
   .contact-left h3 {
@@ -485,9 +477,9 @@
 
   .contact-right {
     background: var(--dark-3);
-    border-left: 1px solid var(--border);
-    border-radius: 0;
-    padding: 3rem 2rem 3rem 3rem;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
   }
 
   .contact-field { margin-bottom: 1.5rem; }
@@ -731,6 +723,18 @@
     position: relative;
     overflow: hidden;
   }
+
+  .value-card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    inset: 0;
+    opacity: 0.85;
+    transition: opacity 0.3s;
+  }
+
+  .value-card:hover .value-card-img img { opacity: 1; }
 
   .value-card-img svg {
     width: 48px; height: 48px;
@@ -1348,6 +1352,80 @@
     .exp-center-line { display: none; }
   }
 
+
+  /* MODAL SHOWCASE */
+  .modal-showcase-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--white);
+    margin: 1.75rem 0 1rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .modal-showcase-desc {
+    font-size: 0.82rem;
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .showcase-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .showcase-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .showcase-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .showcase-img-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: rgba(148,163,184,0.25);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .showcase-img-placeholder svg {
+    width: 24px; height: 24px;
+    stroke: rgba(56,189,248,0.15);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  .showcase-caption {
+    font-size: 0.78rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
   /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
@@ -1504,52 +1582,52 @@
 
       <div class="value-card reveal">
         <div class="value-card-img">
+          <img src="RMHC_Baking.jpeg" alt="Collaboration & Impact" />
           <div class="value-card-img-bg"></div>
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         </div>
         <div class="value-card-body">
           <span class="value-card-num">Core Value 1</span>
           <h3>Collaboration & Impact</h3>
-          <p>I believe the most meaningful outcomes come from working together. Whether in a team, a chapter, or a community, I show up ready to listen, contribute, and create something bigger than myself.</p>
+          <p>I feel that there is a great deal of value in bringing people together, if they have a clear understanding of what they're doing. Collaboration to me is about building environments that respect diversity where ideas are enhanced in a team.</p>
           <a href="#" class="value-read-more" onclick="openModal('modal1');return false;">Read more →</a>
         </div>
       </div>
 
       <div class="value-card reveal">
         <div class="value-card-img">
+          <img src="Social_Seniors_Winner.jpg" alt="Innovation With Purpose" />
           <div class="value-card-img-bg"></div>
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
         </div>
         <div class="value-card-body">
           <span class="value-card-num">Core Value 2</span>
           <h3>Innovation With Purpose</h3>
-          <p>I don't innovate for the sake of it — I look for smarter, more human-centered ways to solve real problems. In HR and leadership, that means building systems and experiences that actually work for people.</p>
+          <p>I feel innovation is not just about what's new but also about solutions that are thoughtfully derived that can make a meaningful difference. I solve problems creatively and with curiosity, looking for ways to improve and add value.</p>
           <a href="#" class="value-read-more" onclick="openModal('modal2');return false;">Read more →</a>
         </div>
       </div>
 
       <div class="value-card reveal">
         <div class="value-card-img">
+          <img src="Anthony_LEAD.jpg" alt="People-Centered Leadership" />
           <div class="value-card-img-bg"></div>
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <div class="value-card-body">
           <span class="value-card-num">Core Value 3</span>
           <h3>People-Centered Leadership</h3>
-          <p>Leadership, to me, is about lifting others up. From serving as Vice President to President to Recruitment Officer, I've learned that the best leaders create space for others to grow and thrive.</p>
+          <p>I strongly feel that leadership starts with knowing and encouraging other people. Real leadership has nothing to do with a title but everything to do with inspiring confidence, gaining trust, and helping people discover their potential.</p>
           <a href="#" class="value-read-more" onclick="openModal('modal3');return false;">Read more →</a>
         </div>
       </div>
 
       <div class="value-card reveal">
         <div class="value-card-img">
+          <img src="Anthony_Golf.png" alt="Growth Mindset" />
           <div class="value-card-img-bg"></div>
-          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
         <div class="value-card-body">
           <span class="value-card-num">Core Value 4</span>
           <h3>Growth Mindset</h3>
-          <p>From a 3.7 GPA to multiple leadership roles to studying for the SHRM-CP, I am constantly pushing myself forward. I believe every experience — good or hard — is an opportunity to become better.</p>
+          <p>I believe the essence of growth lies in taking up challenges and exploring new areas. I embrace every chance to learn something new and constantly search for how I can improve, adapt, and inspire that same growth in others.</p>
           <a href="#" class="value-read-more" onclick="openModal('modal4');return false;">Read more →</a>
         </div>
       </div>
@@ -2001,11 +2079,28 @@
     <span class="modal-badge">Core Value 1</span>
     <h2 class="modal-title">Collaboration & Impact</h2>
     <div class="modal-body">
-      <h3 class="modal-section-title">Why This Matters to Me</h3>
-      <p>I believe the most meaningful outcomes are never achieved alone. Every organization, team, and community I've been part of has reinforced that collaboration is the engine behind real impact.</p>
-      <p>From leading chapters to working alongside professors to recruiting new members, I've seen firsthand how bringing people together with a shared goal creates results none of us could achieve individually.</p>
-      <h3 class="modal-section-title">How I Live This Value</h3>
-      <p>I actively seek out collaborative environments, contribute with intention, and always keep the bigger picture — the impact on people and community — at the center of what I do.</p>
+      <h3 class="modal-section-title">What This Means to Me</h3>
+      <p>I feel that there is a great deal of value in bringing people together, if they have a clear understanding of what they're doing. Collaboration to me is about building environments that respect diversity where ideas are enhanced in a team.</p>
+      <p>This gives everyone a purpose and opportunity to participate. I am committed to making meaningful connections and collaborating to make a difference that goes beyond personal achievements.</p>
+      <h3 class="modal-showcase-title">Impact</h3>
+      <div class="showcase-grid">
+        <div class="showcase-item">
+          <div class="showcase-img">
+            <img src="RMHC_Baking.jpeg" alt="Ronald McDonald House Charities Baking" />
+          </div>
+          <p class="showcase-caption">Anthony and Joaquin baking brownies and cookies to bring comfort and support for families in need at Ronald McDonald House Charities.</p>
+        </div>
+        <div class="showcase-item">
+          <div class="showcase-img">
+            <img src="Anthony_and_Benny.png" alt="Anthony and Benny at Save A Life Pet Rescue" />
+          </div>
+          <p class="showcase-caption">Anthony and Benny at the Save A Life Pet Rescue Event. Anthony helped Benny get adopted along with many others.</p>
+        </div>
+      </div>
+
+      <h3 class="modal-section-title">Why It Matters</h3>
+      <p>I believe that the greatest achievements are rarely accomplished alone. Every meaningful relationship, successful team, and lasting accomplishment is built on trust, shared purpose, and the willingness to support one another.</p>
+      <p>For me, collaboration isn't simply working alongside others — it's creating an environment where everyone feels heard, valued, and empowered to contribute. The impact we leave behind is measured not by what we accomplish individually, but by how we help others grow and succeed.</p>
     </div>
   </div>
 </div>
@@ -2017,11 +2112,28 @@
     <span class="modal-badge">Core Value 2</span>
     <h2 class="modal-title">Innovation With Purpose</h2>
     <div class="modal-body">
-      <h3 class="modal-section-title">Why This Matters to Me</h3>
-      <p>Innovation isn't just about technology or disruption — it's about finding better, more thoughtful ways to solve human problems. In HR, that means rethinking how we recruit, develop, and support people.</p>
-      <p>During my time at Delta Sigma Pi, I implemented document changes and back-end efficiencies that improved operations for 140+ members. That's innovation with purpose — practical, people-focused improvement.</p>
-      <h3 class="modal-section-title">How I Live This Value</h3>
-      <p>I constantly ask "how can this be better?" — whether in a process, a program, or an interaction. I bring fresh thinking to every role I take on while staying grounded in what actually serves people best.</p>
+      <h3 class="modal-section-title">What This Means to Me</h3>
+      <p>I feel innovation is not just about what's new but also about solutions that are thoughtfully derived that can make a meaningful difference. I solve problems creatively and with curiosity, looking for ways to improve and add value to a situation.</p>
+      <p>I know that I can bring new ideas to life together with purposeful action and make something happen for a greater good.</p>
+      <h3 class="modal-showcase-title">Inspiring Huge Changes</h3>
+      <div class="showcase-grid">
+        <div class="showcase-item">
+          <div class="showcase-img">
+            <img src="Social_Seniors_Winner.jpg" alt="Social Seniors Hackathon Winners" />
+          </div>
+          <p class="showcase-caption">Anthony and his team winning an entrepreneur scholarship competition with their idea Social Seniors — a 1-on-1 mentorship service connecting high school seniors and older adults to combat loneliness, mental health problems, and provide meaningful learning experiences.</p>
+        </div>
+        <div class="showcase-item">
+          <div class="showcase-img">
+            <img src="Proclaimation.jpg" alt="Miami Dade County School Board Proclamation" />
+          </div>
+          <p class="showcase-caption">Anthony and his teacher being proclaimed for their efforts to help the Miami Dade County School District with Social Seniors — an impactful program for students.</p>
+        </div>
+      </div>
+
+      <h3 class="modal-section-title">Why It Matters</h3>
+      <p>Curiosity has always driven me to ask, "How can this be better?" I believe progress should never exist simply because something is new — it should make life easier, solve meaningful problems, or create opportunities for others.</p>
+      <p>Purpose gives innovation direction, ensuring that creativity becomes something lasting rather than temporary. I want my ideas to leave behind improvements that genuinely matter.</p>
     </div>
   </div>
 </div>
@@ -2033,11 +2145,21 @@
     <span class="modal-badge">Core Value 3</span>
     <h2 class="modal-title">People-Centered Leadership</h2>
     <div class="modal-body">
-      <h3 class="modal-section-title">Why This Matters to Me</h3>
-      <p>Leadership is not a title — it's a responsibility. I've served as a Member, Vice President, and President of the Heralds, and each role taught me that the best leaders put others' growth before their own recognition.</p>
-      <p>As VP of Chapter Operations at Delta Sigma Pi, I managed operations for 140+ members and conducted 20 structured interviews. Leadership at that scale demands empathy, structure, and genuine care for people.</p>
-      <h3 class="modal-section-title">How I Live This Value</h3>
-      <p>I lead by listening first. I create environments where people feel seen and supported, and I measure my success as a leader by how much those around me are growing — not just by what I personally accomplish.</p>
+      <h3 class="modal-section-title">What This Means to Me</h3>
+      <p>I strongly feel that leadership starts with knowing and encouraging other people. The real meaning of being a leader has nothing to do with having a certain title or rank but has everything to do with inspiring confidence, gaining the trust of others, and helping people discover their true potential.</p>
+      <h3 class="modal-showcase-title">Leadership In Action</h3>
+      <div class="showcase-grid" style="grid-template-columns: 1fr;">
+        <div class="showcase-item">
+          <div class="showcase-img">
+            <img src="Anthony_LEAD.jpg" alt="Anthony at LEAD Conference Jacksonville" />
+          </div>
+          <p class="showcase-caption">Anthony and his brothers in Delta Sigma Pi representing their chapter at the LEAD conference in Jacksonville. Anthony set up connections with other chapters from all over the nation and even had the opportunity to speak for his chapter.</p>
+        </div>
+      </div>
+
+      <h3 class="modal-section-title">Why It Matters</h3>
+      <p>People have always been at the center of the way I lead and the way I live. Every person carries unique experiences, perspectives, and potential that deserve to be recognized.</p>
+      <p>I believe leadership is not about authority or recognition — it's about helping others discover their strengths, overcome challenges, and become more confident in themselves. If those around me feel encouraged, supported, and empowered because of my influence, then I've led successfully.</p>
     </div>
   </div>
 </div>
@@ -2049,11 +2171,22 @@
     <span class="modal-badge">Core Value 4</span>
     <h2 class="modal-title">Growth Mindset</h2>
     <div class="modal-body">
-      <h3 class="modal-section-title">Why This Matters to Me</h3>
-      <p>I started college as a member of a public speaking club. I became its President. I joined a business fraternity, then led its operations. I got a 3.7 GPA while working, leading, and building. That's what a growth mindset looks like in practice.</p>
-      <p>I'm currently studying for the SHRM-CP exam because I don't want to wait until after graduation to be taken seriously as an HR professional. Growth, for me, is always intentional — never accidental.</p>
-      <h3 class="modal-section-title">How I Live This Value</h3>
-      <p>I seek out challenges that stretch me, ask for feedback even when it's uncomfortable, and invest in my development through certifications, coursework, and experiences that push me beyond where I already am.</p>
+      <h3 class="modal-section-title">What This Means to Me</h3>
+      <p>In my opinion, the essence of growth lies in taking up challenges and exploring new areas. I also believe in those who develop themselves constantly and strive every day for improvement.</p>
+      <p>I attempt to embrace every chance I get to learn something new and to grow. In doing so, I am always searching for how I can change, improve, adapt and try to affect the same changes in others.</p>
+      <h3 class="modal-showcase-title">Try, Try Again</h3>
+      <div class="showcase-grid" style="grid-template-columns: 1fr;">
+        <div class="showcase-item">
+          <div class="showcase-img">
+            <img src="Anthony_Golf.png" alt="Anthony Golfing" />
+          </div>
+          <p class="showcase-caption">This moment represents Anthony's commitment to continuous improvement. Golf has taught him that progress does not happen instantly — it requires patience, practice, and the willingness to learn from every attempt. Each swing is an opportunity to evaluate, adjust, and improve, reminding him that growth comes from consistency and embracing challenges.</p>
+        </div>
+      </div>
+
+      <h3 class="modal-section-title">Why It Matters</h3>
+      <p>Growth is one of the most important commitments I can make to myself. Every challenge, every mistake, and every new experience offers an opportunity to become wiser, more resilient, and more capable than I was before.</p>
+      <p>I believe that success is not defined by reaching a destination but by maintaining the discipline to keep learning, adapting, and improving throughout life. Continuous growth allows me to better serve others while becoming the person I aspire to be.</p>
     </div>
   </div>
 </div>
