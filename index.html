@@ -725,13 +725,16 @@
   }
 
   .value-card-img img {
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
     position: absolute;
-    inset: 0;
-    opacity: 0.85;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    opacity: 1;
     transition: opacity 0.3s;
+    z-index: 1;
   }
 
   .value-card:hover .value-card-img img { opacity: 1; }
@@ -746,7 +749,8 @@
   .value-card-img-bg {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, rgba(56,189,248,0.06) 0%, transparent 70%);
+    background: linear-gradient(to bottom, rgba(2,8,23,0.1), rgba(2,8,23,0.4));
+    z-index: 2;
   }
 
   .value-card-body { padding: 1.5rem; }
@@ -1106,6 +1110,16 @@
     color: var(--blue);
     flex-shrink: 0;
     letter-spacing: -0.02em;
+    overflow: hidden;
+  }
+
+  .exp-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    padding: 4px;
+    background: white;
   }
 
   .exp-header {
@@ -1647,7 +1661,7 @@
       <div class="exp-row row-left reveal">
         <div class="exp-entry left reveal">
           <div class="exp-entry-inner">
-            <div class="exp-logo">LM</div>
+            <div class="exp-logo"><img src="LM_logo.jpg" alt="Lockheed Martin" /></div>
             <div>
               <div class="exp-header">
                 <span class="exp-badge">Internship</span>
@@ -1685,7 +1699,7 @@
         <div class="exp-center-line"><div class="exp-dot"></div></div>
         <div class="exp-entry right reveal">
           <div class="exp-entry-inner">
-            <div class="exp-logo">SHRM</div>
+            <div class="exp-logo"><img src="SHRM_logo.jpg" alt="SHRM" /></div>
             <div>
               <div class="exp-header">
                 <span class="exp-badge">Leadership</span>
@@ -1709,7 +1723,7 @@
       <div class="exp-row row-left reveal">
         <div class="exp-entry left reveal">
           <div class="exp-entry-inner">
-            <div class="exp-logo">TH</div>
+            <div class="exp-logo"><img src="The_Heralds_Logo.png" alt="The Heralds" /></div>
             <div>
               <div class="exp-header">
                 <span class="exp-badge">Leadership</span>
@@ -1747,7 +1761,7 @@
         <div class="exp-center-line"><div class="exp-dot"></div></div>
         <div class="exp-entry right reveal">
           <div class="exp-entry-inner">
-            <div class="exp-logo">UCF</div>
+            <div class="exp-logo"><img src="UCF_logo.png" alt="UCF" /></div>
             <div>
               <div class="exp-header">
                 <span class="exp-badge">Work Experience</span>
@@ -1771,7 +1785,7 @@
       <div class="exp-row row-left reveal">
         <div class="exp-entry left reveal">
           <div class="exp-entry-inner">
-            <div class="exp-logo">ΔΣΠ</div>
+            <div class="exp-logo"><img src="Delta_Sigma_Pi_logo.png" alt="Delta Sigma Pi" /></div>
             <div>
               <div class="exp-header">
                 <span class="exp-badge">Leadership</span>
@@ -1809,7 +1823,7 @@
         <div class="exp-center-line"><div class="exp-dot"></div></div>
         <div class="exp-entry right reveal">
           <div class="exp-entry-inner">
-            <div class="exp-logo">TH</div>
+            <div class="exp-logo"><img src="The_Heralds_Logo.png" alt="The Heralds" /></div>
             <div>
               <div class="exp-header">
                 <span class="exp-badge">Leadership</span>
@@ -1833,7 +1847,7 @@
       <div class="exp-row row-left reveal">
         <div class="exp-entry left reveal">
           <div class="exp-entry-inner">
-            <div class="exp-logo">ΔΣΠ</div>
+            <div class="exp-logo"><img src="Delta_Sigma_Pi_logo.png" alt="Delta Sigma Pi" /></div>
             <div>
               <div class="exp-header">
                 <span class="exp-badge">Involvement</span>
@@ -1871,7 +1885,7 @@
         <div class="exp-center-line"><div class="exp-dot"></div></div>
         <div class="exp-entry right reveal">
           <div class="exp-entry-inner">
-            <div class="exp-logo">BS</div>
+            <div class="exp-logo"><img src="brightstar_credit_union_logo.jpg" alt="BrightStar Credit Union" /></div>
             <div>
               <div class="exp-header">
                 <span class="exp-badge">Internship</span>
@@ -1895,7 +1909,7 @@
       <div class="exp-row row-left reveal">
         <div class="exp-entry left reveal">
           <div class="exp-entry-inner">
-            <div class="exp-logo">TH</div>
+            <div class="exp-logo"><img src="The_Heralds_Logo.png" alt="The Heralds" /></div>
             <div>
               <div class="exp-header">
                 <span class="exp-badge">Involvement</span>
@@ -1933,7 +1947,7 @@
         <div class="exp-center-line"><div class="exp-dot"></div></div>
         <div class="exp-entry right reveal">
           <div class="exp-entry-inner">
-            <div class="exp-logo">SM</div>
+            <div class="exp-logo"><img src="Sole_Miami_logo.png" alt="Solé Miami" /></div>
             <div>
               <div class="exp-header">
                 <span class="exp-badge">Internship</span>
