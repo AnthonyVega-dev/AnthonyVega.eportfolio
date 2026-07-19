@@ -713,33 +713,10 @@
   .value-card:hover { border-color: rgba(56,189,248,0.4); transform: translateY(-4px); }
 
   .value-card-img {
-    width: 100%;
-    height: 180px;
     border-bottom: 1px solid var(--border);
-    overflow: hidden;
-    position: relative;
   }
 
-  .value-card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .value-card-img svg {
-    width: 48px; height: 48px;
-    stroke: rgba(56,189,248,0.2);
-    fill: none;
-    stroke-width: 1;
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .value-card-img-bg {
-    display: none;
-  }
+  .value-card-img-bg { display: none; }
 
   .value-card-body { padding: 1.5rem; }
 
@@ -1597,8 +1574,7 @@
 
       <div class="value-card reveal">
         <div class="value-card-img">
-          <img src="Social_Seniors_Winner.jpg" alt="Innovation With Purpose" />
-          <div class="value-card-img-bg"></div>
+          <img src="Social_Seniors_Winner.jpg" alt="Innovation With Purpose" style="width:100%;height:180px;object-fit:cover;display:block;" />
         </div>
         <div class="value-card-body">
           <span class="value-card-num">Core Value 2</span>
@@ -1610,8 +1586,7 @@
 
       <div class="value-card reveal">
         <div class="value-card-img">
-          <img src="Anthony_LEAD.jpg" alt="People-Centered Leadership" />
-          <div class="value-card-img-bg"></div>
+          <img src="Anthony_LEAD.jpg" alt="People-Centered Leadership" style="width:100%;height:180px;object-fit:cover;display:block;" />
         </div>
         <div class="value-card-body">
           <span class="value-card-num">Core Value 3</span>
@@ -1623,8 +1598,7 @@
 
       <div class="value-card reveal">
         <div class="value-card-img">
-          <img src="Anthony_Golf.png" alt="Growth Mindset" />
-          <div class="value-card-img-bg"></div>
+          <img src="Anthony_Golf.png" alt="Growth Mindset" style="width:100%;height:180px;object-fit:cover;display:block;" />
         </div>
         <div class="value-card-body">
           <span class="value-card-num">Core Value 4</span>
