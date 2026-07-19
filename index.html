@@ -715,13 +715,9 @@
   .value-card-img {
     width: 100%;
     height: 180px;
-    background: var(--dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-bottom: 1px solid var(--border);
-    position: relative;
     overflow: hidden;
+    position: relative;
   }
 
   .value-card-img img {
@@ -729,28 +725,20 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    position: absolute;
-    top: 0; left: 0;
-    right: 0; bottom: 0;
-    opacity: 1;
-    transition: opacity 0.3s;
-    z-index: 1;
   }
-
-  .value-card:hover .value-card-img img { opacity: 1; }
 
   .value-card-img svg {
     width: 48px; height: 48px;
     stroke: rgba(56,189,248,0.2);
     fill: none;
     stroke-width: 1;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .value-card-img-bg {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(2,8,23,0.1), rgba(2,8,23,0.4));
-    z-index: 2;
+    display: none;
   }
 
   .value-card-body { padding: 1.5rem; }
